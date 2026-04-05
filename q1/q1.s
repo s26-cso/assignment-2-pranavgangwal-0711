@@ -31,6 +31,7 @@ insert:
     j insert_done
     insert_notnull:
         lw t0,0(s0)                     # t0=root->val
+        beq s1,t0,insert_return_root    # if val==root->val do nothing
         blt s1,t0,insert_left           # val < root->val go left
         lw a0,8(s0)                     # a0=root->right
         mv a1,s1       
