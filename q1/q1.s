@@ -8,7 +8,7 @@ make_node:
     sd ra,8(sp)
     sd s0,0(sp)
     mv s0,a0              # save val in s0
-    li a0,12              # allocate 12 bytes for node
+    li a0,24              # allocate 24 bytes for node (4 for val, 4 for padding, 8 for each pointer)
     call malloc
     sw s0,0(a0)           # node->val=val
     sd x0,8(a0)           # node->left=NULL
